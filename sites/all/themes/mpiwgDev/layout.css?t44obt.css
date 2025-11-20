@@ -1,0 +1,1609 @@
+
+/**
+ * @file
+ * Stark layout method
+ *
+ * To avoid obscuring CSS added to the page by Drupal or a contrib module, the
+ * Stark theme itself has no styling, except just enough CSS to arrange the page
+ * in a traditional "Header, sidebars, content, and footer" layout.
+ *
+ * This layout method works reasonably well, but shouldn't be used on a
+ * production site because it can break. For example, if an over-large image
+ * (one that is wider than 20% of the viewport) is in the left sidebar, the
+ * image will overlap with the #content to the right. The exception to this
+ * is IE6 which will just hide the navigation block completely in these
+ * instances due to a positioning bug.
+ */
+
+
+
+
+/* MPIWG addtional syles for drupal */
+
+/* 
+ * return to mpiwg
+ */
+ 
+ .subnav .subnav li.leaf {
+	padding-left: 10px;
+}
+div.subnav li.sn_off a.active {
+	color: #ffffff;
+	background-color:  #c10000;
+}
+div.subnav .sn_on div.active-trail{
+	color: #ffffff;
+	background-color:  #c10000;
+}
+ 
+/* suchseite */
+div.form-item-exact{
+	display: block;
+}
+
+ 
+ /* entspricht .line*/
+ 
+li.node-readmore a {
+	background: url("icons/blue/LinkIntern.png") center left no-repeat;
+    padding-left: 10px;
+}
+.pane-title{
+	border-bottom: 3px solid #9DA0C2;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+
+
+
+td.key{
+	color :rgb(59, 65, 134);
+
+	}
+	
+ div.main{
+ width: 75%;
+ }
+ 
+ div.title h1,
+ div.title h2
+ {
+ color: #3c4286;
+ }
+
+.mpiwg_internal_view{
+ background-color: red;
+ }
+ .webSearch_hl {
+   font-weight: bold;
+ }
+ 
+
+
+#mpiwg_link a {
+	background-color: #ebecf3;
+	color: #3b4186;
+	padding: 3px 10px 3px 10px;
+	font-style: italic;
+
+}
+
+#header div.title img.logo_left {
+    width: 180px;
+    height: 100%;
+    vertical-align: top;
+    padding: 0px 5px 20px 0px;
+}
+
+div.logo_left {
+float: left;
+}
+
+#header div.title {
+ width: 750px;
+ 
+   
+}
+
+div.subnav .sn_off {
+    padding-left: 3px;
+    background-color: #f8f8f9;
+    font-weight: normal;
+}
+
+div.subnav li.sn_off a{
+    padding-left: 0px;
+    color: #c10000;
+    font-weight: normal;
+}
+
+ul li.leaf{
+	list-style-image: none;
+}
+
+ul li.expanded{
+    list-style-image: none;
+}
+
+ul li.collapsed{
+    list-style-image: none;
+}
+
+ul.menu li{
+	margin-left : 0px;
+}
+
+ul.inline li {
+    display: inline;
+    padding: 0;
+}
+
+/* MPIWG website style sheet 
+ * 
+ * (c) 2013 MPIWG Berlin
+ * Author: Robert Casties
+ */
+body {
+    margin: 0;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #ebecf3;
+    font-size: 12px;
+}
+
+/* 
+ * global styles
+ */
+img {
+    border: none;
+}
+
+a {
+    color: #000b86;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*  link-classes (with icons)  */
+a.internal,
+a.more {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/internal.png) center left no-repeat;
+    padding-left: 10px;
+}
+
+a.download {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/download.png) center left no-repeat;
+    padding-left: 15px;
+}
+
+a.external {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/external.png) center left no-repeat;
+    padding-left: 15px;
+}
+
+a.down {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/down.png) center left no-repeat;
+    padding-left: 15px;
+}
+
+a.jumptop {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/jump_top.png) center left no-repeat;
+    padding-left: 15px;
+}
+
+a.email {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/email.png) center left no-repeat;
+    padding-left: 23px;
+}
+
+/* old blue mail link */
+a.maillink {
+    color: #000b86 !important;
+}
+
+h1 {
+    color: #c10000;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0.5em 0;
+}
+
+h1:first-child {
+    /* does this work correctly? */
+    margin-top: 0;
+}
+
+h2 {
+    color: #c10000;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0.5em 0;
+}
+
+h3 {
+    color: #c10000;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+h3 + h3 {
+    /* h3 directly after h3 has a margin */
+    margin-top: 0.5em; 
+}
+
+h1 a {
+    /* a header with a link looks like a header */
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin: 0.5em 0;
+    line-height: 1.5;
+}
+
+ul.plain {
+    list-style-type: none;
+    padding-left: 0.5em;
+}
+ul.plain > li {
+    margin-top: 0.5em;
+}
+
+ul.inline {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+ul.inline li {
+    display: inline;
+}
+
+/*
+ * table-like rows and columns
+ */
+
+div.rows {
+    display: table;
+}
+
+div.row {
+    display: table-row;
+}
+
+div.row>div.col {
+    display: table-cell;
+    vertical-align: top;
+}
+
+div.row>div.col:first-child {
+    /* first block has no left margin */
+    padding-left: 0 !important;
+}
+
+/* 
+ * page wrapper and header
+ */
+#wrapper {
+    width: 900px;
+    margin: 0 auto;
+    padding: 10px 40px 10px 20px;
+    background-color: #f8f8f9;
+    box-shadow: 0 0 5px 3px #f8f8f9;
+}
+
+#header {
+    display: block;
+    position: relative;
+    height: 95px;
+    margin: 0 0 10px 0;
+}
+
+#header div.title {
+    position: absolute;
+    left: 0;
+    top: 25px;
+}
+
+#header div.title img {
+    width: 661px;
+    height: 40px;
+}
+
+#header div.logo {
+    position: absolute;
+    right: 0;
+}
+
+#header div.logo img {
+  
+    height: 88px;
+}
+
+/* 
+ * Main Navigation
+ */
+#mainnav {
+    display: block;
+    position: relative;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    border-top: 8px solid #9da0c2;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    /* make iPhone-Safari not botch text size */
+    -webkit-text-size-adjust: 100%;
+}
+
+#mainnav ul {
+    padding: 0;
+    margin: 0;
+}
+
+#mainnav li.sec {
+    display: inline;
+    border-top: 8px solid #9da0c2;
+    margin: 0 35px 0 0;
+    padding-top: 5px;
+}
+
+#mainnav li.sec:hover {
+    border-top: 8px solid #c10000;
+}
+
+#mainnav a {
+    color: #696968;
+    outline: none;
+}
+
+#mainnav a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+#mainnav li.sec.on {
+    border-top: 8px solid #c10000;
+}
+
+#mainnav li.sec.on a {
+    color: #3c4286;
+    outline: none;
+    font-weight: bold;
+}
+
+#mainnav li.sec.lang {
+    position: absolute;
+    right: 0;
+    top: -8px;
+    margin-right: 0;
+}
+
+/* 
+ * breadcrumbs 
+ */
+#breadcrumbs {
+    font-size: 11px;
+    color: #6a4d3c;
+    margin-bottom: 5px;
+}
+
+#breadcrumbs a {
+    color: #6a4d3c;
+}
+
+#breadcrumbs .selected {
+    font-weight: bold;
+}
+
+/* 
+ * main section wrapper
+ */
+#mainrow {
+    display: table-row;
+}
+
+/*
+ * subnavigation
+ */
+div.leftbox {
+    display: table-cell;
+    vertical-align: top;
+    width: 170px;
+    border-top: 3px solid #9da0c2;
+}
+
+div.subnav {
+    font-size: 11px;
+}
+
+div.subnav ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.subnav li {
+    list-style-type: none;
+    border-bottom: 1px solid #9da0c2;
+    padding: 3px 6px 6px 3px;
+}
+
+/*div.subnav .sn_on {
+    padding-left: 6px;
+    background-color: #c10000;
+}*/
+
+div.subnav .sn_on a {
+    color: #f8f8f9;
+    font-weight: bold;
+}
+
+div.subnav h2.subnavhead {
+    background-color: white;
+    color: #c10000;
+    border-bottom: 1px solid #9da0c2;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 3px;
+}
+
+div.subnav li.dept {
+    padding-left: 18px;
+    list-style-position: inside;
+    list-style-image: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/internal.png);
+    text-indent: -14px;
+}
+
+div.subnav li.dept .type {
+    font-style: italic;
+    color: #6a4d3c;
+}
+
+div.subnav li.dept.sn_on .type {
+    color: #f9f4e1;
+}
+
+div.subnavbox {
+    /* navigation below e.g. research projects */
+    font-size: 11px;
+    margin-top: 30px;
+}
+
+div.subnavbox h2 {
+    font-size: 11px;
+    color: #b69f7b;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #9da0c2;
+    margin-top: 20px;
+}
+
+/*
+ *  main section 
+ */
+div.main {
+    display: table-cell;
+    vertical-align: top;
+    background-color: white;
+    border-top: 3px solid #9da0c2;
+    padding: 20px;
+}
+
+div.main div.row>div.col {
+    /* col default padding */
+    padding-left: 20px;
+}
+
+div.main div.center {
+    /* make sure center does not collapse */
+    min-width: 460px;
+}
+
+
+/* 
+ * frontpage
+ */
+div.main.home {
+    background-color: transparent;
+    border-top: 0;
+    padding: 0;
+}
+
+div.main.home b {
+    /* bold is blue */
+    color: #3b4186;
+}
+
+div.main.home div.row.triple>div.col {
+    /* frontpage col width */
+    width: 286px;
+    padding-left: 21px;
+}
+
+div.box h2,
+h2.line {
+    /* more-links in title are right */
+    position: relative;
+}
+
+div.box h2 a:link,
+h2.line a.more:link {
+    /* more-links in title are right */
+    position: absolute;
+    right: 0;
+    top: 3px;
+    /* more-links in title are small */
+    font-size: 12px;
+}
+
+/*
+ * front page feature teaser
+ */
+div.main.home div.teaser {
+    background-color: #f4e0c7;
+}
+
+div.main.home div.teaser div.box {
+    /* teaser box needs no margins */
+    margin: 0;
+}
+
+div.teaser_image {
+    position: relative;
+    width: 593px;
+    height: 351px;
+}
+
+div.teaser_image div.caption {
+    /* caption inside image */
+    position: absolute;
+    bottom: 0;
+    padding: 3px;
+    text-align: right;
+    color: white;
+    font-size: 10px;
+    opacity: 0.8;
+    background-color: gray;
+    /* background-color: rgba(80,80,80,0.6); */
+}
+
+div.teaser_text {
+    padding-right: 21px;
+}
+/* feature number */
+div.teaser_text div.feature_number {
+    position: absolute;
+    right: 14px;
+    top: 5px;
+    font-family: Georgia, Times, serif;
+    font-size: 26px;
+    color: #887163;
+}
+/* feature title */
+div.teaser_text h1 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 0;
+}
+/* current research topic */
+div.teaser_text h3 {
+    color: #887163;
+    margin-bottom: 3px;
+    margin-top: 15px;
+}
+/* feature date */
+div.teaser_text div.date {
+    color: #3b4186;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* teaser slider */
+div.teaser div.box div.slider {
+    top: 150px;
+    width: 18px;
+    height: 24px;
+    padding-top: 11px;
+}
+
+div.teaser div.box div.slider.prev {
+    background-image: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/slider_prev_bg.png);
+}
+
+div.teaser div.box div.slider.next {
+    background-image: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/slider_next_bg.png);
+}
+
+/* 
+ * toolboxes 
+ */
+div.tool.box {
+    font-family: Georgia, Times, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #887163;
+    background-color: #efeeec;
+    padding: 20px;
+    box-shadow: 0 0 1px 1px #e0e0e0;
+}
+
+div.tool.box a {
+    color: #3b4186;
+}
+
+div.tool.box div.searchbox {
+    /* only to make it shrink-wrap */
+    display: table-cell;
+}
+
+div.tool.box div.searchbox input.text {
+    height: 20px;
+    width: 370px;
+    background-color: #9fa0a7;
+    color: white;
+    font-size: 14px;
+    font-style: italic;
+    border: 0;
+    padding: 3px;
+}
+
+div.tool.box div.searchbox input.submit {
+    /* submit uses border-box. don't ask */
+    height: 26px;
+    width: 26px;
+    border: 0;
+    padding: 2px 3px 4px 3px;
+    /* TODO: this should be an image */
+    background-color: #ee7f2d;
+    color: white;
+    font-size: 14px;
+}
+
+div.tool.box div.searchbox div.extended {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    text-align: right;
+    padding: 5px 30px 5px 3px;
+}
+
+div.tool.box h3 {
+    font-family: Georgia, Times, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #887163;
+    margin: 0.5em 0;
+}
+
+div.tool.box h3:first-child {
+    /* top header has no margin */
+    margin-top: 0;
+}
+
+div.tool.box ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.tool.box div.options {
+    margin-top: 10px;
+}
+
+div.tool.box div.options li {
+    list-style-type: none;
+    margin: 0.5em 0;
+}
+
+div.tool.box div.atoz {
+    color: #887163;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    margin-top: 10px;
+}
+
+div.tool.box input.checkbox,
+div.tool.box input.radio {
+    /* checkbox uses border-box. don't ask */
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    /* TODO: this should be an image */
+    background-color: white;
+}
+
+/* project page toolbox with thumbs */
+div.tool.box div.box.thumbs {
+    width: 420px;
+}
+
+div.box.thumbs div.thumb {
+    display: inline;
+}
+div.box.thumbs div.thumb img {
+    width: 55px;
+    height: 34px;
+}
+
+
+/* 
+ * service box on frontpage 
+ */
+div.box h2.service {
+    /* title has no line */
+    border: 0;
+}
+
+div.tool.box.service {
+    margin-top: 0;
+    padding: 0;
+}
+
+div.tool.box.service div.row > div.col {
+    padding: 0;
+}
+div.tool.box.service div.search {
+    width: 200px;
+    height: 20px;
+    padding: 26px 0 26px 16px;
+    border-bottom: 1px solid #9fa0a7;
+}
+div.tool.box.service div.search.both {
+    height: 44px;
+    padding: 14px 0 14px 16px;
+}
+div.tool.box.service div.searchicon {
+    width: 38px;
+    height: 40px;
+    text-align: center;
+    padding: 16px;
+    border-bottom: 1px solid #9fa0a7;
+}
+div.tool.box.service div.icon {
+    width: 71px;
+    height: 70px;
+    text-align: center;
+    line-height: 2.5;
+    padding: 1px 0;
+    border-left: 1px solid #9fa0a7;
+}
+div.tool.box.service div.icon a {
+    color: black;
+    font-size: 12px;
+    font-family: Verdana, Arial, sans-serif;
+    font-style: normal;
+}
+div.tool.box.service div.icon.first {
+    border-left: 0;
+    width: 70px;
+}
+div.tool.box.service div.searchbox {
+    display: block;
+}
+div.tool.box.service div.searchbox input.text {
+    width: 170px;
+    height: 17px;
+    font-size: 12px;
+    padding: 1px 3px;
+}
+div.tool.box.service div.searchbox input.submit {
+    height: 19px;
+    width: 19px;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+}
+div.tool.box.service select.quickfinder {
+    width: 200px;
+    height: 19px;
+    font-size: 12px;
+    background-color: white;
+    margin-bottom: 5px;
+    border: 0;
+}
+
+/*
+ * other boxes
+ */
+div.box {
+    margin: 20px 0;
+    position: relative;
+}
+
+div.box h2,
+h2.line {
+    /* h2 is title with line */
+    padding-bottom: 5px;
+    border-bottom: 3px solid #9da0c2;
+    margin-bottom: 5px;
+}
+
+div.box.line,
+div.line {
+    border-bottom: 1px solid #9da0c2;
+}
+
+div.box h3 {
+    /* h3 is subtitle/type */
+    font-size: 12px;
+    color: #6a4d3c;
+}
+
+div.box h3 + h2 {
+    /* directly over h2 */
+    margin-top: 0;
+}
+
+/*
+ * small box with thumbnail
+ */
+div.mini {
+    padding: 10px 0;
+    /* line-height: 1; */
+}
+
+div.row.quintuple div.mini {
+    max-width: 122px;
+    font-size: 11px;
+}
+
+div.mini div.thumb {
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-top: 0.5em;
+}
+div.mini div.thumb:first-child {
+    margin-top: 0;
+}
+div.row.quintuple div.mini div.thumb img {
+    width: 120px;
+    height: 75px;
+}
+
+div.row.triple div.mini {
+    width: 140px;
+}
+
+div.row.triple div.mini div.thumb img {
+    width: 140px;
+    height: 87px;
+}
+
+div.row.triple div.mini.source div.thumb img {
+    /* thumb size for sources given by digilib */
+    width: auto;
+    height: auto;
+}
+
+div.row.double div.mini div.thumb img {
+    height: 180px;
+}
+
+div.mini div.type {
+    color: #9f917a;
+    margin-top: 0.5em;
+}
+
+div.mini div.title {
+    margin-top: 0.5em;
+}
+
+div.mini div.author {
+    color: #3b4186;
+    margin-top: 0.5em;
+}
+
+div.mini div.link {
+    margin-top: 0.5em;
+}
+
+div.mini h2 {
+    /* e.g. title for mini-books */
+    font-size: 14px;
+}
+
+div.mini.website div.description {
+    /* initially hidden */
+    display: none;
+}
+
+div.box.foldable div.fold {
+    /* initially hidden */
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* TODO: this should be an image */
+    background-color: #ee7f2d;
+    color: white;
+    font-size: 14px;
+}
+
+/* 
+ * slider buttons 
+ */
+div.box div.slider {
+    position: absolute;
+    top: 110px;
+    width: 16px;
+    height: 18px;
+}
+
+div.box div.slider.prev {
+    left: 0;
+}
+
+div.box div.slider.next {
+    right: 0;
+    text-align: right;
+}
+
+/* 
+ * paragraph with line
+ */
+div.item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #9da0c2;
+    line-height: 1.5;
+}
+
+/*
+ * pubman references
+ */
+.reference .Italic {
+    font-style: italic;
+}
+
+
+/*
+ * table with items (articles)
+ */
+table.items {
+    /* no space between cells */
+    border-collapse: collapse;
+}
+
+table.items td {
+    vertical-align: top;
+    text-align: left;
+    line-height: 1.5;
+    padding: 1em 1em 0.5em 0;
+}
+table.items td:last-child {
+    padding-right: 0;
+}
+table.items.shorter td {
+    padding: 0.5em 0.5em 0.5em 0;
+}
+
+table.items th {
+    font-family: Georgia, Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
+    color: #887163;
+    text-align: left;
+    border-bottom: 3px solid #9da0c2;
+}
+
+table.items h2 {
+    border-bottom: 3px solid #9da0c2;
+    margin-bottom: 0;
+}
+table.items h2 a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;    
+}
+
+table.items img.thumb {
+    width: 55px;
+    height: 34px;
+}
+
+table.items td.line,
+table.items tr.line td {
+    border-bottom: 1px solid #9da0c2;
+}
+
+table.items td.topline,
+table.items tr.topline td {
+    border-top: 1px solid #9da0c2;
+}
+
+table.items tr.last_item td {
+    /* last_item has no padding-top */
+    padding: 0 0 0.5em 0;
+}
+
+table.items h3.fold_head {
+    font-size: 12px;
+    background-color: #f6f2eb;
+    padding: 3px;
+}
+
+table.items h3.fold_head img {
+    margin: 0 5px 0 3px;
+}
+
+table.items div.fold_body {
+    /* e.g. preprint abstracts */
+    padding: 0.5em 0 0 20px;
+}
+
+ul.items {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.items li {
+    padding: 0 0 0.5em 20px;    
+    border-bottom: 3px solid #9da0c2;
+    margin-bottom: 0.5em;
+}
+
+ul.items .fold_head {
+    text-indent: -20px;
+}
+ul.items .fold_head img.fold_open,
+ul.items .fold_head img.fold_closed {
+    padding-right: 5px;
+}
+
+ul.items .type {
+    /* font-size: 11px; */
+    color: #696968;
+}
+
+ul.items h2 {
+    font-size: 12px;
+}
+
+ul.items td.key {
+    color: #3b4186;
+}
+
+.foldable img.fold_closed {
+    /* fold is initially open */
+    display: none;
+}
+
+
+/*
+ * hierarchical list (of projects)
+ */
+div.hierlist h2 {
+    text-indent: -20px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #9da0c2;
+    margin-bottom: 0;
+}
+
+div.hierlist h2 img {
+    padding: 0 3px 3px 3px; 
+}
+
+div.hierlist h2 a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+div.hierlist ul {
+    list-style-type: none;
+    padding: 0 0 10px 0;
+    margin: 0;
+    border-bottom: 1px solid #9da0c2;
+}
+
+div.hierlist li {
+    padding: 5px 0 5px 16px;
+    text-indent: -13px;
+}
+
+div.hierlist li a {
+    /* icon is more distant from text */
+    padding-left: 13px;
+}
+
+div.hierlist li.indent {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #9da0c2;
+    margin-bottom: 5px;
+}
+
+div.hierlist li.level_1 {
+    font-size: 14px;
+}
+
+div.hierlist li.level_2 {
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+div.hierlist li.level_3 {
+    margin-left: 40px;
+}
+
+div.hierlist li.level_4 {
+    margin-left: 60px;
+}
+
+div.hierlist li.level_5 {
+    margin-left: 80px;
+}
+
+
+/*
+ * figures (in project descriptions and features)
+ */
+div.figure,
+div.image_small {
+    float: left;
+    width: 230px;
+    padding: 0.5em 1em 0 0;
+}
+div.image_small.right {
+    float: right;
+    padding: 0.5em 0 0 1em;
+}
+div.figure div.image img,
+div.image_small img {
+    width: 230px;
+}
+div.figure div.figcaption,
+div.banner_large div.caption,
+div.image_small div.caption {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #9f917a;
+    margin-top: 0.5em;
+}
+div.banner_large img {
+    width: 460px;
+}
+
+/*
+ * project description and feature
+ */
+h3.authors {
+    margin-top: 0.5em;
+}
+
+p.maintext_authors {
+    font-size: 14px;
+    color: #3b4186;
+}
+
+div.description {
+    margin-top: 0.5em;
+    line-height: 1.5;
+}
+
+h2.type {
+    color: #9f917a;
+}
+
+/*
+ * feature story archive
+ */
+ul.items.features li {
+    padding: 0 0 0.5em 0;
+    border-bottom: 1px solid #9da0c2;
+}
+ul.items.features .thumb {
+    float:left;
+    padding: 8px 10px 0 0;
+}
+ul.items.features .thumb img {
+    width: 55px;
+    height: 34px;
+}
+ul.items.features .feature_number {
+    font-family: Georgia, Times, serif;
+    font-size: 24px;
+    color: #696968;
+}
+ul.items.features .date {
+    font-size: 11px;
+    color: #696968;
+}
+ul.items.features h1 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* 
+ * sidebar 
+ */
+div.sidebar {
+    display: table-cell;
+    width: 220px;
+    border-top: 3px solid #9da0c2;
+    background-color: white;
+    padding: 20px 10px 20px 0;
+}
+
+div.sideblock h2 {
+    position: relative;
+    font-size: 12px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #9da0c2;
+    margin-bottom: 0;
+}
+
+div.sideblock:first-child h2 {
+    margin-top: 0;
+}
+
+div.sideblock h3 {
+    font-size: 12px;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #9da0c2;
+}
+
+/* like sidebar without line */
+div.sidebox {
+    width: 220px;
+    padding: 0 0 20px 0;
+}
+
+/*
+ * project sidebars
+ */
+div.sideblock h2 .proj_state {
+    position: absolute;
+    right: 0;
+}
+
+div.sideblock .project {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/internal.png) no-repeat scroll 6px 11px #F5DAAF;
+    border-bottom: 1px solid #F3BE7C;
+    padding: 6px 6px 6px 20px;
+}
+div.sideblock .project.inactive {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/internal.png) no-repeat scroll 6px 11px #f6e6cc;
+}
+div.sideblock .project.parent {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/up.png) no-repeat scroll 6px 11px #F9F4E1;
+    border-bottom: 1px solid #9da0c2;
+    color: #666666;
+}
+div.sideblock .project a {
+    color: #333;
+}
+
+/*
+ * special sideblocks
+ */
+div.sideblock .item.link, 
+div.sideblock .item.internal {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/internal.png) 0 11px no-repeat;
+    padding-left: 10px;
+}
+
+div.sideblock .item.external {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/external.png) 0 11px no-repeat;
+    padding-left: 13px;
+}
+
+div.sideblock .item.download {
+    background: url(http://intern.mpiwg-berlin.mpg.de/herbarien/sites/all/themes/images/download.png) 0 8px no-repeat;
+    padding-left: 15px;
+}
+
+div.sideblock .item.thumb img {
+    width: 55px;
+    height: 34px;
+}
+div.sideblock .item.thumb .text {
+    padding-left: 0.5em;
+}
+
+/*
+ * footer
+ */
+#footer {
+    position: relative;
+    height: 50px;
+    border-top: 1px solid #9da0c2;
+    padding-top: 8px;
+    margin-top: 29px;
+}
+
+#footer div.text {
+    display: inline-block;
+    color: #c10000;
+    font-size: 11px;
+}
+
+#footer div.logo {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
+
+#footer div.logo img {
+    width: 204px;
+    height: 41px;
+}
+/* extension */
+
+#header div.title {
+ width: 750px;
+ top: 15px;
+   
+}
+
+/*#header div.logo img {
+    width: 100%;
+    height: 100px;
+    
+}*/
+
+a.email {
+    background: url("icons/blue/Email.png") center left no-repeat;
+    padding-left: 23px;
+}
+
+
+
+
+/* events */
+
+.field-name-field-event-subtitle {
+	 color: rgb(193,0,0);
+	 font-size : 18px;
+}
+
+.node-enterprise-event div {
+padding-top :4pt
+}
+	
+/* syles for events */
+
+.node-enterprise-event div.field-name-field-date{
+    font-size: 14px;
+}
+
+/* footer */
+
+div#wrapper div#footer div.region div#block-menu-menu-bottom-menu.side-block h2.title{
+	display: none;
+}
+
+div#wrapper div#footer div.region div#block-menu-menu-bottom-menu.side-block div div.subnav ul.menu li.leaf div.level{
+	display: inline;   
+}
+
+div#wrapper div#footer div.region div#block-menu-menu-bottom-menu.side-block div div.subnav ul.menu li.leaf{
+	display: inline;  
+	border-bottom: 0px; 
+}
+
+div.main div#center div.clearfix div.region div#block-system-main.side-block  div.content  div.inside div.panel-pane div.pane-content h2{
+	border-bottom: 0px;
+}
+
+div.title p{
+	font-size: 16px;
+	color: #3c4286;
+	line-height: 1;
+}
+
+
+
+/* field groups */
+
+.align-left-right {
+	display: table;
+	 width:400px;
+}
+.align-left-right div.field{
+    display: table-row;
+   
+   
+}
+
+
+.align-left-right div.field-label {
+	text-align: left;
+	display: table-cell;
+	float:None;
+	padding-bottom: 1em;
+	
+}
+
+.align-left-right div.field-items {
+    text-align: right;
+    display: table-cell;
+    float: None;
+     padding-bottom: 1em;
+}
+
+.align-left-right div.field-item {
+    text-align: right;
+    display: inline;
+}
+
+
+
+
+
+
+div.node-teaser h2{
+	 font-size: 16px;
+}
+
+div.node h2{
+     font-size: 16px;
+}
+
+div.larger-text {
+	 font-size: 16px; 
+}
+
+
+
+div.centered {
+	text-align: center;
+}
+
+div.form-item-items-per-page label{
+	display: inline;
+}
+
+/* views */
+
+table.views-table tr th{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.1);
+    border-bottom-style: none;
+    height:40px;
+}
+
+table.views-table tr.odd {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.0);
+    border-bottom-style: none;
+}
+
+
+table.views-table tr td {
+   padding-left: 10px;
+   padding-bottom: 10px;
+   padding-top: 10px;
+   
+}
+table.views-table tr td.active {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.13);
+    border-bottom-style: none;
+}
+
+table.views-view-grid td{
+    vertical-align : top;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    
+}
+
+
+table.views-view-grid td div.clearfix {
+    padding-top: 30px;
+}
+div.views-exposed-form div.views-exposed-widgets div.views-exposed-widget input#edit-submit-taxonomy-term.form-submit
+{
+    margin-top: 0pt;
+}
+
+div.views-exposed-widgets{
+	display: table;
+}
+
+div.views-exposed-widget div.views-exposed-form{
+    display: table-row;
+    float: None;
+}
+
+
+div.views-exposed-form {
+	background-color: #EFEEEC;
+    box-shadow: 0 0 1px 1px #E0E0E0;
+   
+	color: #696968;
+    font-family: Georgia,Times,serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+ div.views-exposed-form div.views-exposed-widget{
+  display: table-row;
+  float: None;
+ }
+
+div.views-exposed-widget label{
+	display:table-cell;
+	text-align: left;
+	font-weight: normal;
+	padding: 10px 10px 10px 10px;
+	
+}
+div.views-exposed-widget select{
+    display:table-cell;
+   
+}
+
+div.views-exposed-widget views-submit-button{
+	display: table-cell;
+}
+div.views-operator{
+	display: table-cell;
+	text-align: left;
+	padding: 10px 10px 10px 10px;
+}
+
+div.views-widget{
+    display: table-cell;
+    text-align: left;
+}
+
+
+/* blog */
+.node-blog .links li {
+background: none repeat scroll 0 0 #D3D1D1;
+    border-radius: 4px;
+    color: #383838;
+    font-weight: normal;
+    padding: 4px 5px;
+    text-shadow: 1px 1px #FFFFFF;
+}
+
+/* node reference */
+
+div.nodereference-top{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+div.nodereference-top a{
+	background: url("icons/blue/LinkIntern.png") no-repeat scroll 0 0 #D3D1D1;
+    padding-left: 10px;
+    border-radius: 4px;
+    color: #383838;
+    font-weight: normal;
+   
+    text-shadow: 1px 1px #FFFFFF;
+   
+	
+}
+
+ul.action-links  {
+	list-style-type: none;
+	padding-left: 0px;
+	
+}
+ul.action-links a{
+    background: url("icons/blue/LinkIntern.png") no-repeat scroll 0 0 #D3D1D1;
+    padding-left: 10px;
+    border-radius: 4px;
+    color: #383838;
+    font-weight: normal;
+   
+    text-shadow: 1px 1px #FFFFFF;
+   
+    
+}
+
+
+/* probleme mit clicks bei panels auf links */
+
+a.ctools-dropdown-image-link{
+    z-index: 100;
+    position: relative;
+}

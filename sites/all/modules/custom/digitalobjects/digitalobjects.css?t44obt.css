@@ -1,0 +1,35 @@
+/*
+Cascading Style Sheets, level 2 revision 1. 
+CSS 2.1 Specification is available at 
+http://www.w3.org/TR/2006/WD-CSS21-20061106/
+*/
+
+td.digitalobjects_item_image {
+vertical-align:top;
+}
+
+div.digitalobjects_item {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+table.digitalobjects_item_short td{
+	vertical-align:top;
+}
+
+
+div.digitalobjects_item_tools{
+	display:inline;
+}
+
+
+/* CSS fuer ARB */
+
+div.group-more-details{
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+div.group-more-details div{
+	display:inline;
+	padding-left: 5px;
+}
